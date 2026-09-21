@@ -8,7 +8,7 @@
 ---
 
 ### 1. Executive Summary
-The **AI Ecommerce Assistant** is a next-generation, intelligent retail platform engineered to bridge traditional transactional commerce with autonomous conversational assistance. Unlike legacy e-commerce chatbots that operate as simple question-and-answer bots, the system incorporates an **Enterprise AI Shopping Agent** powered by the **Capgemini Generative Engine** and `openai.gpt-5-mini`.
+The **AI Ecommerce Assistant** is a next-generation, intelligent retail platform engineered to bridge traditional transactional commerce with autonomous conversational assistance. Unlike legacy e-commerce chatbots that operate as simple question-and-answer bots, the system incorporates an autonomous **Enterprise AI Shopping Agent** powered by an in-memory **Natural Language Intent & Domain Catalog Reasoning Engine** integrated directly with transactional database state.
 
 The platform facilitates discovery, comparison, personalized advisory, dynamic cart mutations, and full order lifecycle operations (placement, live tracking, order cancellation, and one-click reordering) through both conversational interaction (text and voice) and a Material-designed web interface. The solution is architected as a decoupled, responsive Single-Page Application (SPA) built with **Angular 22**, a high-performance asynchronous REST backend built with **Python FastAPI**, and an ACID-compliant transactional persistence layer on **Microsoft SQL Server (LocalDB)**.
 
@@ -16,7 +16,7 @@ The platform facilitates discovery, comparison, personalized advisory, dynamic c
 
 ### 2. Project Objectives
 1. **Autonomous Commerce Engagement**: Transition customer interaction from browsing static lists to proactive AI procurement guidance, reducing cognitive fatigue and cart abandonment.
-2. **Deterministic & Generative Hybrid Intelligence**: Pair deterministic, low-latency business logic (cart calculations, inventory checks, order cancellations) with generative semantic reasoning (budget recommendations, multi-item concierge bundles, comparative analysis).
+2. **Deterministic & Catalog-Aware Semantic Intelligence**: Pair deterministic, low-latency business logic (cart calculations, inventory checks, order cancellations) with structured domain catalog reasoning (budget recommendations, multi-item concierge bundles, comparative analysis).
 3. **Voice-First Accessibility**: Provide hands-free natural language procurement using client-side Web Speech API integrated with real-time intent processing.
 4. **End-to-End Enterprise Commerce Lifecycle**: Provide full self-service lifecycle management including granular quantity adjustment, live parcel tracking, autonomous order cancellation with simulated refund routing, and past-order reordering.
 5. **High Reliability & Low Latency**: Achieve sub-200ms REST API response times and sub-500ms conversational inference latency while ensuring strict data consistency across relational transactions.
@@ -29,7 +29,7 @@ The platform facilitates discovery, comparison, personalized advisory, dynamic c
 - **FR-AUTH-01 (Signup)**: Enable customers to register with First Name, Last Name, Email, Password, and AI procurement preferences/interests (e.g., *Mobiles, Gaming Laptops, Audio*).
 - **FR-AUTH-02 (Password Security)**: Enforce strong credentials (minimum 8 characters, uppercase, lowercase, numeric, and special character) hashed using PBKDF2-HMAC-SHA256 with cryptographically secure salts.
 - **FR-AUTH-03 (Login & Session)**: Authenticate registered credentials, validate against database records, and issue session contexts storing user profiles and shopping history.
-- **FR-AUTH-04 (Role-Based Access Control)**: Enforce role separation (`Customer`, `Admin`) across endpoints.
+- **FR-AUTH-04 (User Session Context)**: Issue persistent client-side session identity (`X-User-Id` header) ensuring authenticated cart and order isolation.
 
 #### 3.2 E-Commerce Storefront
 - **FR-ECOMM-01 (Catalog Browsing & Search)**: Categorized browsing (Mobiles, Laptops, Accessories) with real-time keyword search, stock levels, and pricing.
@@ -74,8 +74,6 @@ The platform facilitates discovery, comparison, personalized advisory, dynamic c
 
 The solution implements a **Layered Clean Architecture** decoupled across presentation, API orchestration, domain business logic, and transactional persistence.
 
-![Detailed Low-Level Design Architecture](./lld_architecture.jpg)
-
 ```mermaid
 flowchart TD
     subgraph Client Tier [Presentation Tier - Angular 22 & Angular Material]
@@ -98,7 +96,7 @@ flowchart TD
         OrderService[Order Lifecycle & State Machine]
         ProductService[Catalog & Inventory Engine]
         AIService[AI Shopping Agent & Intent Parser]
-        GenEngine[Capgemini Generative Engine / openai.gpt-5-mini]
+        KnowledgeBase[In-Memory Catalog Knowledge & Spec Base]
     end
 
     subgraph Data Tier [Persistence Layer]
@@ -120,7 +118,7 @@ flowchart TD
     FastAPI --> ProductService
     FastAPI --> AIService
 
-    AIService --> GenEngine
+    AIService --> KnowledgeBase
     AIService --> ORM
     AuthService --> ORM
     CartService --> ORM
@@ -227,7 +225,7 @@ frontend/src/app/
 - **Asynchronous Non-Blocking Core**: Built on Starlette and Uvicorn ASGI engine.
 - **Pydantic Validation Layer**: All inbound payloads and outbound entities are strictly typed and validated using Pydantic models.
 - **Dependency Injection (DI)**: Database sessions (`get_db`) and authenticated identity (`get_current_user_id`) are injected at the controller method level.
-- **Deterministic-Generative AI Orchestration**: `AIService` orchestrates natural language tokens through a multi-tier pattern matching and evaluation engine, mapping intent directly to database operations and generative reasoning routines.
+- **Deterministic NLU & Domain Reasoning Orchestration**: `AIService` orchestrates natural language tokens through a multi-tier pattern matching and evaluation engine, mapping intent directly to database operations and domain catalog reasoning routines.
 
 #### 8.2 Backend Directory Structure
 ```
@@ -318,7 +316,7 @@ erDiagram
 |---|---|---|---|---|
 | `POST` | `/auth/signup` | Customer account registration | `SignupRequest` | 200, 400 |
 | `POST` | `/auth/login` | Authenticate customer credentials | `LoginRequest` | 200, 401 |
-| `GET` | `/auth/users` | Retrieve registered users (Admin) | None | 200 |
+| `GET` | `/auth/users` | Retrieve registered user accounts | None | 200 |
 | `GET` | `/products/` | Retrieve all catalog products | None | 200 |
 | `GET` | `/products/{id}` | Retrieve product details by ID | None | 200, 404 |
 | `POST` | `/cart/add` | Add product to active cart | `AddToCartRequest` | 200 |
@@ -370,7 +368,7 @@ sequenceDiagram
 
 ### 13. AI Assistant Workflow
 
-The conversational engine implements a high-speed, deterministic Intent Extraction & Entity Recognizer paired with the Capgemini Generative Engine / `openai.gpt-5-mini`.
+The conversational engine implements a high-speed, deterministic Intent Extraction & Entity Recognizer paired with an in-memory Domain Catalog Knowledge Base.
 
 ```mermaid
 flowchart TD
@@ -385,7 +383,7 @@ flowchart TD
     Classifier -->|Match Intent: Reorder| ReorderHandler[Level 3: Previous Order Reorder Engine]
     Classifier -->|Match Intent: Cart Mutation| CartHandler[Level 1 & 3: Cart Add / Update / Clear Engine]
     Classifier -->|Match Intent: Search/Rec| SearchHandler[Level 1: Semantic Catalog Search & Filtering]
-    Classifier -->|Unmatched / Complex Reasoning| LLMEngine[Capgemini Generative Engine / gpt-5-mini]
+    Classifier -->|Unmatched / General Query| FallbackSearch[Catalog Keyword Search Fallback]
 
     CompareHandler --> DB[(SQL Server)]
     ConciergeHandler --> DB
@@ -394,7 +392,7 @@ flowchart TD
     ReorderHandler --> DB
     CartHandler --> DB
     SearchHandler --> DB
-    LLMEngine --> DB
+    FallbackSearch --> DB
 
     DB --> ResponseFormatter[Response Formatter: Markdown, Product Cards, Bundle Cards, Actions]
     ResponseFormatter --> Outbound[ChatResponse Payload to Client UI]
@@ -599,7 +597,7 @@ sequenceDiagram
 | `LastName` | `NVARCHAR(100)` | No | None | Customer surname |
 | `Email` | `NVARCHAR(255)` | No | `UNIQUE, NONCLUSTERED INDEX` | Authentication username |
 | `PasswordHash` | `NVARCHAR(255)` | No | None | Salted PBKDF2 hash (`<salt>$<key>`) |
-| `Role` | `NVARCHAR(50)` | No | `DEFAULT 'Customer'` | Role-based authorization tag |
+| `Role` | `NVARCHAR(50)` | No | `DEFAULT 'Customer'` | User account profile type |
 | `Interests` | `NVARCHAR(500)` | Yes | None | Comma-separated AI interest tags |
 | `CreatedAt` | `DATETIME` | No | `DEFAULT GETDATE()` | Account creation timestamp |
 
@@ -701,16 +699,11 @@ flowchart LR
         MSSQL[(Microsoft SQL Server)]
     end
 
-    subgraph ExternalAI [Enterprise AI Cloud]
-        CapgeminiAI[Capgemini Generative Engine / openai.gpt-5-mini]
-    end
-
     Browser -- HTTPS (Port 443) --> Nginx
     Nginx -- Static Assets (HTML/JS/CSS) --> Browser
     Nginx -- HTTP Proxy (Port 8000) --> UvicornWorkers
     UvicornWorkers --> FastAPI_App
     FastAPI_App -- ODBC TCP (Port 1433) --> MSSQL
-    FastAPI_App -- REST / HTTPS (TLS 1.3) --> CapgeminiAI
 ```
 
 - **Frontend Hosting**: Distributed via Nginx or CDN serving pre-rendered static assets generated by `ng build`.
@@ -721,11 +714,13 @@ flowchart LR
 
 ### 21. Future Enhancements
 
-1. **RAG Vector Search Integration**: Deploy a vector store (such as pgvector or Azure AI Search) storing dense embeddings of product manuals and reviews to support open-ended technical queries.
-2. **Autonomous Stock Replenishment**: Event-driven triggers notifying logistics partners when stock levels drop below reorder thresholds.
-3. **Multi-Channel Chatbot Webhooks**: Extend the AI Assistant engine to WhatsApp Business, Telegram, and Apple Business Chat.
-4. **Real-Time Payment Gateway Webhooks**: Integrate Razorpay / Stripe webhooks for instant automated payment reconciliations and automated refund disbursements.
-5. **AR Product Visualizer**: Add WebXR-powered 3D Augmented Reality visualization to the Angular product details page.
+1. **External Generative LLM Integration**: Connect the NLU intent engine to external cloud LLMs (such as OpenAI GPT-4o / Capgemini Generative Engine) for open-ended dialog and dynamic product review summarization.
+2. **Role-Based Access Control (RBAC)**: Expand authorization with dedicated Admin role guards, permissions middleware, and an Administrative catalog/inventory management dashboard.
+3. **RAG Vector Search Integration**: Deploy a vector store (such as pgvector or Azure AI Search) storing dense embeddings of product manuals and reviews to support open-ended technical queries.
+4. **Autonomous Stock Replenishment**: Event-driven triggers notifying logistics partners when stock levels drop below reorder thresholds.
+5. **Multi-Channel Chatbot Webhooks**: Extend the AI Assistant engine to WhatsApp Business, Telegram, and Apple Business Chat.
+6. **Real-Time Payment Gateway Webhooks**: Integrate Razorpay / Stripe webhooks for instant automated payment reconciliations and automated refund disbursements.
+7. **AR Product Visualizer**: Add WebXR-powered 3D Augmented Reality visualization to the Angular product details page.
 
 ---
 **Approval & Sign-Off:**  
