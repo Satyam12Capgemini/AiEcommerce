@@ -1,87 +1,87 @@
-# 🤖 AI Ecommerce Assistant — Master Prompt Engineering Log
+# AI Ecommerce Assistant — Master Prompt Engineering Log
 
-<div align="center">
-
-![Angular 22](https://img.shields.io/badge/Angular-22-DD0031?style=for-the-badge&logo=angular&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![SQL Server](https://img.shields.io/badge/SQL_Server-LocalDB-CC292B?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)
-![Web Speech API](https://img.shields.io/badge/Web_Speech_API-Voice_Shopping-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)
-![Status](https://img.shields.io/badge/Architecture-Enterprise_Edition-success?style=for-the-badge)
-
-<p align="center">
-  <strong>Comprehensive prompt engineering methodology, structured prompt sequences, and execution logs used to build the autonomous AI-powered e-commerce assistant from scratch.</strong>
-</p>
-
-</div>
+```
+========================================================================================
+PROJECT            : AI Ecommerce Assistant (Enterprise Edition)
+ARCHITECTURE TIER  : Layered Clean Architecture (Decoupled SPA + Async REST API)
+CORE STACK         : Angular 22 | Python FastAPI | SQL Server LocalDB | SQLAlchemy 2.0
+INTELLIGENCE TYPE  : Autonomous Conversational Commerce & In-Memory Domain Reasoning
+DOCUMENT TYPE      : Master Prompt Engineering & Execution Specification
+STATUS             : Production Verified & Approved
+========================================================================================
+```
 
 ---
 
-> [!NOTE]
-> **Project Context:**  
-> The **AI Ecommerce Assistant** is an enterprise-grade retail platform combining traditional transactional e-commerce (catalog browsing, shopping cart mutations, atomic checkout, live order tracking) with an autonomous conversational **AI Shopping Agent** supporting hands-free voice shopping, side-by-side product comparisons, budget advising, order management, and one-click reordering.
+## 📌 Executive Overview
 
-> [!TIP]
-> **Prompt Engineering Methodology:**  
-> This project followed a **Tiered Chain-of-Thought (CoT)** and **Role-Based Persona Prompting** framework. Each prompt strictly defines the architectural constraints, type contracts, relational schemas, and expected outputs before generating source code.
+This document serves as the official, comprehensive repository of all structured prompts utilized throughout the end-to-end software development lifecycle of the **AI Ecommerce Assistant**.
+
+The project was constructed following a disciplined **Role-Based Persona Prompting** and **Chain-of-Thought (CoT)** methodology. Every prompt explicitly defines:
+- **Architectural Constraints & System Boundaries**
+- **Type Contracts & Relational 3NF Schemas**
+- **Deterministic Business Logic & Fallback Guardrails**
+- **Target File Artifacts & Concrete Implementation Criteria**
 
 ---
 
-## 📑 Table of Contents
+## 🧭 Navigation Index
 
-- [📊 Prompt Execution & Architecture Matrix](#-prompt-execution--architecture-matrix)
-- [🏗️ Phase 1: Architecture, Requirements & Low-Level Design (LLD)](#-phase-1-architecture-requirements--low-level-design-lld)
+- [1. Prompt Execution & Delivery Matrix](#1-prompt-execution--delivery-matrix)
+- [2. Phase 1: Architecture, Requirements & Low-Level Design (LLD)](#2-phase-1-architecture-requirements--low-level-design-lld)
   - [Prompt 1.1: System Architecture & Requirements Definition](#prompt-11-system-architecture--requirements-definition)
   - [Prompt 1.2: Enterprise LLD Document Generation](#prompt-12-enterprise-lld-document-generation)
-- [🗄️ Phase 2: Database Schema & SQLAlchemy Models](#-phase-2-database-schema--sqlalchemy-models)
-  - [Prompt 2.1: Database Engine & LocalDB Connection Configuration](#prompt-21-database-engine--localdb-connection-configuration)
-  - [Prompt 2.2: 3NF Relational SQLAlchemy ORM Models](#prompt-22-3nf-relational-sqlalchemy-orm-models)
-  - [Prompt 2.3: Pydantic Validation Schemas (DTO Contracts)](#prompt-23-pydantic-validation-schemas-dto-contracts)
-- [⚡ Phase 3: Backend FastAPI REST Endpoints & Authentication](#-phase-3-backend-fastapi-rest-endpoints--authentication)
-  - [Prompt 3.1: Cryptographic Authentication & Password Hashing](#prompt-31-cryptographic-authentication--password-hashing)
-  - [Prompt 3.2: E-Commerce CRUD Routers (Products, Cart, Orders)](#prompt-32-e-commerce-crud-routers-products-cart-orders)
-- [🧠 Phase 4: AI Shopping Assistant & Intent Orchestration Engine](#-phase-4-ai-shopping-assistant--intent-orchestration-engine)
-  - [Prompt 4.1: Domain Catalog Knowledge Base & Spec Advantages](#prompt-41-domain-catalog-knowledge-base--spec-advantages)
-  - [Prompt 4.2: 23-Capability Natural Language Intent Pipeline](#prompt-42-23-capability-natural-language-intent-pipeline)
-  - [Prompt 4.3: FastAPI Chatbot Router Endpoint](#prompt-43-fastapi-chatbot-router-endpoint)
-- [🎨 Phase 5: Frontend Single Page Application (Angular 22)](#-phase-5-frontend-single-page-application-angular-22)
-  - [Prompt 5.1: Angular Reactive Core & Signals Architecture](#prompt-51-angular-reactive-core--signals-architecture)
-  - [Prompt 5.2: Material Storefront Views (Catalog, Cart, Orders, Auth)](#prompt-52-material-storefront-views-catalog-cart-orders-auth)
-- [💬 Phase 6: Floating Chatbot Component & Material UI Integration](#-phase-6-floating-chatbot-component--material-ui-integration)
+- [3. Phase 2: Database Schema & SQLAlchemy Models](#3-phase-2-database-schema--sqlalchemy-models)
+  - [Prompt 2.1: Database Engine & LocalDB Connection Setup](#prompt-21-database-engine--localdb-connection-setup)
+  - [Prompt 2.2: 3NF Relational SQLAlchemy ORM Declarative Models](#prompt-22-3nf-relational-sqlalchemy-orm-declarative-models)
+  - [Prompt 2.3: Pydantic Validation Schemas & DTO Contracts](#prompt-23-pydantic-validation-schemas--dto-contracts)
+- [4. Phase 3: Backend FastAPI REST Endpoints & Authentication](#4-phase-3-backend-fastapi-rest-endpoints--authentication)
+  - [Prompt 3.1: Cryptographic Authentication & Salted PBKDF2 Password Hashing](#prompt-31-cryptographic-authentication--salted-pbkdf2-password-hashing)
+  - [Prompt 3.2: E-Commerce Storefront CRUD Routers](#prompt-32-e-commerce-storefront-crud-routers)
+- [5. Phase 4: AI Shopping Assistant & Intent Orchestration Engine](#5-phase-4-ai-shopping-assistant--intent-orchestration-engine)
+  - [Prompt 4.1: Domain Catalog Knowledge Base & Spec Advancements](#prompt-41-domain-catalog-knowledge-base--spec-advancements)
+  - [Prompt 4.2: 23-Capability Natural Language Intent Processing Pipeline](#prompt-42-23-capability-natural-language-intent-processing-pipeline)
+  - [Prompt 4.3: FastAPI Chat Execution Controller](#prompt-43-fastapi-chat-execution-controller)
+- [6. Phase 5: Frontend Single Page Application (Angular 22)](#6-phase-5-frontend-single-page-application-angular-22)
+  - [Prompt 5.1: Angular Reactive Core, Signals & Interceptors](#prompt-51-angular-reactive-core-signals--interceptors)
+  - [Prompt 5.2: Material Design Storefront Views](#prompt-52-material-design-storefront-views)
+- [7. Phase 6: Floating Chatbot Component & Material UI Integration](#7-phase-6-floating-chatbot-component--material-ui-integration)
   - [Prompt 6.1: Floating Chat Window & Interactive Controls](#prompt-61-floating-chat-window--interactive-controls)
-  - [Prompt 6.2: Dynamic Product Cards, Bundle Cards & State Sync](#prompt-62-dynamic-product-cards-bundle-cards--state-sync)
-- [🎙️ Phase 7: Native Voice Shopping & Web Speech API](#-phase-7-native-voice-shopping--web-speech-api)
+  - [Prompt 6.2: In-Chat Product Embeds, Bundle Cards & State Synchronization](#prompt-62-in-chat-product-embeds-bundle-cards--state-synchronization)
+- [8. Phase 7: Native Voice Shopping & Web Speech API](#8-phase-7-native-voice-shopping--web-speech-api)
   - [Prompt 7.1: Client-Side Speech Recognition Integration](#prompt-71-client-side-speech-recognition-integration)
-- [🧪 Phase 8: Conversational Evaluation Test Suite](#-phase-8-conversational-evaluation-test-suite)
-  - [Evaluation Test Prompts Matrix](#evaluation-test-prompts-matrix)
+- [9. Phase 8: Conversational Evaluation Test Suite](#9-phase-8-conversational-evaluation-test-suite)
+  - [Comprehensive Conversational Validation Matrix](#comprehensive-conversational-validation-matrix)
 
 ---
 
-## 📊 Prompt Execution & Architecture Matrix
+## 1. Prompt Execution & Delivery Matrix
 
-| Phase | Milestone / Domain | Primary Artifact | Target Tech Stack | Status |
+| Phase | Milestone / Domain | Primary Artifact Created | Target Stack | Delivery Status |
 |:---:|:---|:---|:---|:---:|
-| **01** | Architecture & LLD Specification | `docs/LLD_AI_Ecommerce_Assistant.md` | Architecture, Mermaid | `COMPLETED` ✅ |
-| **02** | Relational Database & Models | `backend/app/models.py`, `database.py` | SQLAlchemy 2.0, MSSQL | `COMPLETED` ✅ |
-| **03** | FastAPI Backend & Crypto Auth | `backend/app/routers/` (auth, products, cart, orders) | FastAPI, PBKDF2, Uvicorn | `COMPLETED` ✅ |
-| **04** | AI Shopping Intent Engine | `backend/app/services/ai_service.py` | Python NLU, Regex, Knowledge Base | `COMPLETED` ✅ |
-| **05** | Angular 22 SPA Frontend | `frontend/src/app/pages/` (catalog, cart, orders) | Angular Signals, Material | `COMPLETED` ✅ |
-| **06** | Floating Chatbot UI Widget | `frontend/src/app/components/chatbot/` | Angular Material, CSS3, DOM | `COMPLETED` ✅ |
-| **07** | Voice Shopping Engine | `chatbot.ts` (`toggleVoiceInput`) | Web Speech API, Chromium | `COMPLETED` ✅ |
-| **08** | Conversational Testing Suite | Live Chatbot Validation Logs | E2E Conversational Testing | `COMPLETED` ✅ |
+| **01** | Architecture & Low-Level Design | `docs/LLD_AI_Ecommerce_Assistant.md` | Architecture, Mermaid | `COMPLETED` |
+| **02** | Relational Database & Models | `backend/app/models.py`, `database.py` | SQLAlchemy 2.0, MSSQL | `COMPLETED` |
+| **03** | FastAPI Backend & Crypto Auth | `backend/app/routers/` (auth, products, cart, orders) | FastAPI, PBKDF2, Uvicorn | `COMPLETED` |
+| **04** | AI Shopping Intent Engine | `backend/app/services/ai_service.py` | Python NLU, Knowledge Base | `COMPLETED` |
+| **05** | Angular 22 SPA Frontend | `frontend/src/app/pages/` (catalog, cart, orders) | Angular Signals, Material | `COMPLETED` |
+| **06** | Floating Chatbot UI Widget | `frontend/src/app/components/chatbot/` | Angular Material, CSS3 | `COMPLETED` |
+| **07** | Voice Shopping Engine | `chatbot.ts` (`toggleVoiceInput`) | Web Speech API | `COMPLETED` |
+| **08** | Conversational Testing Suite | Live Chatbot Validation Verification | E2E Conversational Testing | `COMPLETED` |
 
 ---
 
-## 🏗️ Phase 1: Architecture, Requirements & Low-Level Design (LLD)
+## 2. Phase 1: Architecture, Requirements & Low-Level Design (LLD)
 
 ### Prompt 1.1: System Architecture & Requirements Definition
 
-> **Role / Persona:** Enterprise Solution Architect  
-> **Output Artifact:** System Architecture Plan & Functional Requirements  
-> **Target:** System Design & Technical Specifications
+```
+[ METADATA ]
+Target Artifact : System Architecture Plan & Functional Requirements
+Role / Persona  : Enterprise Solution Architect
+Objective       : Define full-stack decoupled architecture and specifications
+```
 
-```markdown
+```text
 Act as an Enterprise Solution Architect. We need to build a full-stack, enterprise-grade e-commerce application named "AI Ecommerce Assistant". 
 
 Key architectural requirements:
@@ -97,11 +97,14 @@ Provide a comprehensive Low-Level Design (LLD) document including Functional Req
 
 ### Prompt 1.2: Enterprise LLD Document Generation
 
-> **Role / Persona:** Lead Technical Documentation Engineer  
-> **Output Artifact:** `docs/LLD_AI_Ecommerce_Assistant.md`  
-> **Target:** Full Technical LLD Document
+```
+[ METADATA ]
+Target Artifact : docs/LLD_AI_Ecommerce_Assistant.md
+Role / Persona  : Lead Technical Documentation Engineer
+Objective       : Generate 100% code-accurate Low-Level Design documentation
+```
 
-```markdown
+```text
 Create a detailed, production-ready markdown file `docs/LLD_AI_Ecommerce_Assistant.md` structured as follows:
 
 1. Executive Summary & Project Objectives:
@@ -124,15 +127,18 @@ Create a detailed, production-ready markdown file `docs/LLD_AI_Ecommerce_Assista
 
 ---
 
-## 🗄️ Phase 2: Database Schema & SQLAlchemy Models
+## 3. Phase 2: Database Schema & SQLAlchemy Models
 
-### Prompt 2.1: Database Engine & LocalDB Connection Configuration
+### Prompt 2.1: Database Engine & LocalDB Connection Setup
 
-> **Role / Persona:** Database & Backend Infrastructure Specialist  
-> **Output Artifact:** `backend/app/database.py` & `backend/app/test_connection.py`  
-> **Target:** Microsoft SQL Server Connection
+```
+[ METADATA ]
+Target Artifact : backend/app/database.py & backend/app/test_connection.py
+Role / Persona  : Database & Backend Infrastructure Specialist
+Objective       : Establish persistent pyodbc connection to Microsoft SQL Server LocalDB
+```
 
-```markdown
+```text
 In `backend/app/database.py`, configure a SQLAlchemy engine and session factory for Microsoft SQL Server LocalDB:
 - Connection String: `mssql+pyodbc://@(localdb)\MSSQLLocalDB/AI_ECOMMERCE?driver=ODBC+Driver+18+for+SQL+Server&trusted_connection=yes`
 - Implement declarative Base and SessionLocal factory with autocommit=False, autoflush=False.
@@ -141,13 +147,16 @@ In `backend/app/database.py`, configure a SQLAlchemy engine and session factory 
 
 ---
 
-### Prompt 2.2: 3NF Relational SQLAlchemy ORM Models
+### Prompt 2.2: 3NF Relational SQLAlchemy ORM Declarative Models
 
-> **Role / Persona:** Senior Data Engineer  
-> **Output Artifact:** `backend/app/models.py`  
-> **Target:** 3NF Database Models
+```
+[ METADATA ]
+Target Artifact : backend/app/models.py
+Role / Persona  : Senior Data Engineer
+Objective       : Implement 3NF normalized declarative SQLAlchemy models
+```
 
-```markdown
+```text
 In `backend/app/models.py`, implement declarative SQLAlchemy 2.0 ORM models normalized to Third Normal Form (3NF):
 
 1. Product:
@@ -175,13 +184,16 @@ In `backend/app/models.py`, implement declarative SQLAlchemy 2.0 ORM models norm
 
 ---
 
-### Prompt 2.3: Pydantic Validation Schemas (DTO Contracts)
+### Prompt 2.3: Pydantic Validation Schemas & DTO Contracts
 
-> **Role / Persona:** API Contract Specialist  
-> **Output Artifact:** `backend/app/schemas.py`  
-> **Target:** Type-Safe Data Transfer Objects
+```
+[ METADATA ]
+Target Artifact : backend/app/schemas.py
+Role / Persona  : API Contract Specialist
+Objective       : Define type-safe request and response Pydantic models
+```
 
-```markdown
+```text
 In `backend/app/schemas.py`, define Pydantic v2 schemas for all API payloads:
 - Products: ProductResponse, ProductCreateRequest, ProductUpdateRequest
 - Cart: AddToCartRequest (ProductId, Quantity, UserId), UpdateCartQuantityRequest (Quantity)
@@ -194,15 +206,18 @@ In `backend/app/schemas.py`, define Pydantic v2 schemas for all API payloads:
 
 ---
 
-## ⚡ Phase 3: Backend FastAPI REST Endpoints & Authentication
+## 4. Phase 3: Backend FastAPI REST Endpoints & Authentication
 
-### Prompt 3.1: Cryptographic Authentication & Password Hashing
+### Prompt 3.1: Cryptographic Authentication & Salted PBKDF2 Password Hashing
 
-> **Role / Persona:** Application Security Engineer  
-> **Output Artifact:** `backend/app/routers/auth.py`  
-> **Target:** Secure Salted Authentication
+```
+[ METADATA ]
+Target Artifact : backend/app/routers/auth.py
+Role / Persona  : Application Security Engineer
+Objective       : Implement PBKDF2-HMAC-SHA256 password hashing and user onboarding
+```
 
-```markdown
+```text
 In `backend/app/routers/auth.py`:
 1. Implement secure password hashing:
    - Function: `hash_password(password: str) -> str` using PBKDF2-HMAC-SHA256 with 100,000 iterations and a 16-byte random salt (`os.urandom(16)`). Format: `<salt_hex>$<key_hex>`.
@@ -217,13 +232,16 @@ In `backend/app/routers/auth.py`:
 
 ---
 
-### Prompt 3.2: E-Commerce CRUD Routers (Products, Cart, Orders)
+### Prompt 3.2: E-Commerce Storefront CRUD Routers
 
-> **Role / Persona:** Full-Stack Backend Developer  
-> **Output Artifact:** `backend/app/routers/` (products, cart, orders)  
-> **Target:** Transactional Commerce Endpoints
+```
+[ METADATA ]
+Target Artifact : backend/app/routers/ (products.py, cart.py, orders.py)
+Role / Persona  : Full-Stack Backend Developer
+Objective       : Implement transactional e-commerce operations with SQLAlchemy DI
+```
 
-```markdown
+```text
 Create the following FastAPI routers with database dependency injection (`Depends(get_db)`):
 
 1. `backend/app/routers/products.py`:
@@ -246,15 +264,18 @@ Create the following FastAPI routers with database dependency injection (`Depend
 
 ---
 
-## 🧠 Phase 4: AI Shopping Assistant & Intent Orchestration Engine
+## 5. Phase 4: AI Shopping Assistant & Intent Orchestration Engine
 
-### Prompt 4.1: Domain Catalog Knowledge Base & Spec Advantages
+### Prompt 4.1: Domain Catalog Knowledge Base & Spec Advancements
 
-> **Role / Persona:** Conversational AI & E-Commerce Knowledge Engineer  
-> **Output Artifact:** `backend/app/services/ai_service.py` (Knowledge Dictionaries)  
-> **Target:** In-Memory Catalog Intelligence
+```
+[ METADATA ]
+Target Artifact : backend/app/services/ai_service.py
+Role / Persona  : Conversational AI & E-Commerce Knowledge Engineer
+Objective       : Construct structured catalog specifications and out-of-stock substitutes
+```
 
-```markdown
+```text
 In `backend/app/services/ai_service.py`, build an extensive domain catalog knowledge dictionary:
 
 1. `PRODUCT_KNOWLEDGE`:
@@ -268,13 +289,16 @@ In `backend/app/services/ai_service.py`, build an extensive domain catalog knowl
 
 ---
 
-### Prompt 4.2: 23-Capability Natural Language Intent Pipeline
+### Prompt 4.2: 23-Capability Natural Language Intent Processing Pipeline
 
-> **Role / Persona:** Natural Language Processing (NLP) Specialist  
-> **Output Artifact:** `AIService.process_message(...)` in `ai_service.py`  
-> **Target:** 5-Level Autonomous AI Shopping Agent
+```
+[ METADATA ]
+Target Artifact : AIService.process_message(...) in backend/app/services/ai_service.py
+Role / Persona  : Natural Language Processing (NLP) Specialist
+Objective       : Implement deterministic multi-tier intent matching across 5 capability levels
+```
 
-```markdown
+```text
 Implement `AIService.process_message(message, db, user_name, interests, user_id)` orchestrating 23 capabilities across 5 distinct intelligence levels:
 
 - Level 1 (Core Commerce):
@@ -286,36 +310,39 @@ Implement `AIService.process_message(message, db, user_name, interests, user_id)
   - Place Order / Direct Checkout with atomic DB mutation.
   - View Order History with dates and status badges.
 - Level 2 (Comparison & Alternatives):
-  - Product Comparison Matrix ⭐: Compare two items (e.g. "Compare Samsung M35 and OnePlus Nord CE") across battery, camera, display, and price, with a definitive recommendation pick.
+  - Product Comparison Matrix: Compare two items (e.g. "Compare Samsung M35 and OnePlus Nord CE") across battery, camera, display, and price, with a definitive recommendation pick.
   - Smart Budget Recommendations with "Why?" rationale.
   - Out-of-Stock Alternatives: Propose substitutes for unavailable items.
   - Explain Product: Detailed pros, cons, and target workloads.
 - Level 3 (Order & Cart Lifecycle):
-  - Cancel Order ⭐: Live DB cancellation with status validation (reject if DELIVERED, confirm refund if PLACED).
-  - Track Order ⭐: Milestone timeline (Placed, In Transit, Delivered) with carrier (BlueDart Express) and ETA.
-  - 1-Click Reorder ⭐: Batch-clone past order items into active cart.
+  - Cancel Order: Live DB cancellation with status validation (reject if DELIVERED, confirm refund if PLACED).
+  - Track Order: Milestone timeline (Placed, In Transit, Delivered) with carrier (BlueDart Express) and ETA.
+  - 1-Click Reorder: Batch-clone past order items into active cart.
   - Update Cart Quantity ("Increase Samsung quantity to 3").
   - Remove from Cart ("Remove Samsung from cart").
   - Cart Summary ("How much will I pay?").
 - Level 4 (Decision Support & Advisory):
-  - Smart Budget Advisor ⭐: "I have ₹25,000. Which phone is best?".
+  - Smart Budget Advisor: "I have ₹25,000. Which phone is best?".
   - Purchase Decision Support: "Should I buy Samsung M35 or wait?".
   - Requirement-based Search: Map activities (e.g. "coding + gaming") to hardware specs.
   - Gift Recommendations: "Gift for a college student under ₹5,000".
 - Level 5 (Concierge & Personalization):
-  - AI Shopping Concierge Setup Builder ⭐: "Build a complete setup under ₹60,000" -> Assemble Laptop + Earbuds + Smart Watch with bundle metadata.
+  - AI Shopping Concierge Setup Builder: "Build a complete setup under ₹60,000" -> Assemble Laptop + Earbuds + Smart Watch with bundle metadata.
   - Personalized Suggestions: Curate items matching user profile interest tags.
 ```
 
 ---
 
-### Prompt 4.3: FastAPI Chatbot Router Endpoint
+### Prompt 4.3: FastAPI Chat Execution Controller
 
-> **Role / Persona:** Backend API Engineer  
-> **Output Artifact:** `backend/app/routers/chatbot.py`  
-> **Target:** Chat Execution Controller
+```
+[ METADATA ]
+Target Artifact : backend/app/routers/chatbot.py
+Role / Persona  : Backend API Engineer
+Objective       : Route POST /chatbot/chat and inject database and user dependencies
+```
 
-```markdown
+```text
 In `backend/app/routers/chatbot.py`:
 - Implement `POST /chatbot/chat` accepting `ChatRequest` and returning `ChatResponse`.
 - Inject `db: Session = Depends(get_db)` and `current_user_id: Optional[int] = Depends(get_current_user_id)`.
@@ -325,15 +352,18 @@ In `backend/app/routers/chatbot.py`:
 
 ---
 
-## 🎨 Phase 5: Frontend Single Page Application (Angular 22)
+## 6. Phase 5: Frontend Single Page Application (Angular 22)
 
-### Prompt 5.1: Angular Reactive Core & Signals Architecture
+### Prompt 5.1: Angular Reactive Core, Signals & Interceptors
 
-> **Role / Persona:** Principal Frontend Architect (Angular)  
-> **Output Artifact:** `app.config.ts`, `auth.ts`, `cart.ts`, `ai-chat.ts`  
-> **Target:** Modern Standalone & Signals Topology
+```
+[ METADATA ]
+Target Artifact : app.config.ts, auth.ts, cart.ts, ai-chat.ts, auth.interceptor.ts
+Role / Persona  : Principal Frontend Architect (Angular)
+Objective       : Establish reactive signal-driven state management and standalone components
+```
 
-```markdown
+```text
 Initialize an Angular 22 application using Standalone Components, Angular Signals, and Angular Material:
 
 1. `app.config.ts`:
@@ -350,13 +380,16 @@ Initialize an Angular 22 application using Standalone Components, Angular Signal
 
 ---
 
-### Prompt 5.2: Material Storefront Views (Catalog, Cart, Orders, Auth)
+### Prompt 5.2: Material Design Storefront Views
 
-> **Role / Persona:** UI/UX Frontend Specialist  
-> **Output Artifact:** `pages/` (login, signup, dashboard, products, cart, orders)  
-> **Target:** Responsive Material Storefront
+```
+[ METADATA ]
+Target Artifact : frontend/src/app/pages/ (login, signup, dashboard, products, cart, orders)
+Role / Persona  : UI/UX Frontend Specialist
+Objective       : Build responsive, accessible e-commerce storefront views
+```
 
-```markdown
+```text
 Build responsive storefront pages using Angular Material components:
 
 1. `pages/signup` & `pages/login`:
@@ -372,15 +405,18 @@ Build responsive storefront pages using Angular Material components:
 
 ---
 
-## 💬 Phase 6: Floating Chatbot Component & Material UI Integration
+## 7. Phase 6: Floating Chatbot Component & Material UI Integration
 
 ### Prompt 6.1: Floating Chat Window & Interactive Controls
 
-> **Role / Persona:** Conversational UI Specialist  
-> **Output Artifact:** `frontend/src/app/components/chatbot/` (chatbot.ts, chatbot.html, chatbot.css)  
-> **Target:** Material Floating Assistant
+```
+[ METADATA ]
+Target Artifact : frontend/src/app/components/chatbot/ (chatbot.ts, chatbot.html, chatbot.css)
+Role / Persona  : Conversational UI Specialist
+Objective       : Create floating Material chat interface with suggestion chips
+```
 
-```markdown
+```text
 Create a floating AI Assistant component in `frontend/src/app/components/chatbot/`:
 
 1. Trigger Button:
@@ -395,13 +431,16 @@ Create a floating AI Assistant component in `frontend/src/app/components/chatbot
 
 ---
 
-### Prompt 6.2: Dynamic Product Cards, Bundle Cards & State Sync
+### Prompt 6.2: In-Chat Product Embeds, Bundle Cards & State Synchronization
 
-> **Role / Persona:** Senior Frontend Engineer  
-> **Output Artifact:** Rich Widget Rendering & Signal Synchronization  
-> **Target:** In-Chat Actions & Reactivity
+```
+[ METADATA ]
+Target Artifact : In-Chat Actions & Signal Synchronization in chatbot.ts
+Role / Persona  : Senior Frontend Engineer
+Objective       : Render interactive product/bundle cards and sync navbar cart count
+```
 
-```markdown
+```text
 Extend `chatbot.ts` and `chatbot.html` to support rich interactive UI widgets:
 
 1. In-Chat Product Embeds:
@@ -409,7 +448,7 @@ Extend `chatbot.ts` and `chatbot.html` to support rich interactive UI widgets:
 2. Concierge Bundle Cards:
    - When `msg.bundle` is present, render a highlighted package card showing included devices, total bundle price, and a one-click "Add Setup to Cart" button.
 3. Contextual Navigation Links:
-   - Render "View Cart →" or "View Orders →" links based on message intent.
+   - Render "View Cart ->" or "View Orders ->" links based on message intent.
 4. Automatic Reactive Cart Synchronization:
    - In `sendMessage()`, whenever the response contains `action_taken === 'cart_updated'`, `item_deleted`, or `order_created`, immediately invoke `cartService.refreshCartCount()` so the navbar badge updates without page reload.
 5. Client-Side Fallback Resilience:
@@ -418,15 +457,18 @@ Extend `chatbot.ts` and `chatbot.html` to support rich interactive UI widgets:
 
 ---
 
-## 🎙️ Phase 7: Native Voice Shopping & Web Speech API
+## 8. Phase 7: Native Voice Shopping & Web Speech API
 
 ### Prompt 7.1: Client-Side Speech Recognition Integration
 
-> **Role / Persona:** Web Speech & Accessibility Engineer  
-> **Output Artifact:** `initSpeechRecognition()` & `toggleVoiceInput()` in `chatbot.ts`  
-> **Target:** Hands-Free Voice Procurement
+```
+[ METADATA ]
+Target Artifact : initSpeechRecognition() & toggleVoiceInput() in chatbot.ts
+Role / Persona  : Web Speech & Accessibility Engineer
+Objective       : Implement browser-native speech-to-text without external cloud dependencies
+```
 
-```markdown
+```text
 In `frontend/src/app/components/chatbot/chatbot.ts`:
 
 1. Implement native client-side speech recognition using the browser's Web Speech API (`webkitSpeechRecognition` / `SpeechRecognition`) with zero external cloud dependencies.
@@ -441,38 +483,38 @@ In `frontend/src/app/components/chatbot/chatbot.ts`:
 
 ---
 
-## 🧪 Phase 8: Conversational Evaluation Test Suite
+## 9. Phase 8: Conversational Evaluation Test Suite
 
-### Evaluation Test Prompts Matrix
+### Comprehensive Conversational Validation Matrix
 
-Use the following real-world prompts in the chatbot during live demonstrations to evaluate all 23 capabilities:
-
-| # | Capability / Category | Test Prompt (Query to Enter/Speak) | Expected Assistant Action & Output |
+| Test ID | Capability Tested | Input Prompt (Type / Speak) | Expected System Action & Response |
 |:---:|:---|:---|:---|
-| **01** | **Greeting & Onboarding** | `"Hi"` / `"Hello"` | Personal welcome acknowledging user profile interest tags (e.g. Mobiles, Laptops). |
-| **02** | **Product Comparison ⭐** | `"Compare Samsung M35 and OnePlus Nord CE"` | Side-by-side matrix (Battery, Camera, Display, Price) + recommended winner pick + interactive product cards. |
-| **03** | **Budget Recommendation** | `"I have ₹50,000 budget. Suggest a laptop."` | Recommends Acer Aspire 7 with explicit "Why?" rationale and in-stock units. |
-| **04** | **Smart Budget Advisor ⭐** | `"I have ₹25,000. Which phone is best?"` | Recommends Samsung M35 (6000mAh + 120Hz) and highlights Redmi Note 14 as budget alternative. |
-| **05** | **Out-of-Stock Substitute** | `"Add iPhone 16 to cart"` | Explains iPhone is unavailable; suggests verified in-stock alternatives (Samsung M35, OnePlus Nord CE). |
-| **06** | **Product Explain / Pros & Cons** | `"Why should I buy HP Victus?"` | Displays suitable workloads, bulleted pros (144Hz, dual cooling) and cons (heavier chassis). |
-| **07** | **Purchase Decision Support** | `"Should I buy Samsung M35 or wait?"` | Generates decision matrix based on price stability, battery needs, and verified stock. |
-| **08** | **Requirement-Based Search** | `"I need a laptop for coding and gaming"` | Filters high-performance laptops with dedicated GPUs and cooling systems. |
-| **09** | **Gift Recommendation** | `"Gift for a college student under ₹5,000"` | Suggests combo gift: Noise Smart Watch (₹2,499) + Boat Airdopes (₹1,299) within ₹5k budget. |
-| **10** | **Setup Concierge ⭐** | `"Build a complete setup under ₹60,000"` | Assembles Laptop + Earbuds + Smart Watch bundle with one-click "Add Setup to Cart" CTA. |
-| **11** | **Add Setup Bundle to Cart** | `"Add setup to cart"` | Adds all bundle items into active cart; navbar cart counter increments automatically. |
-| **12** | **Add Single Product** | `"Add Samsung M35 to cart"` | Inserts `CartItem` into database; updates subtotal and increments navbar badge. |
-| **13** | **Update Quantity** | `"Increase Samsung quantity to 3"` | Mutates cart quantity in database; reports updated line item subtotal. |
-| **14** | **Cart Bill Summary** | `"How much will I pay?"` | Computes itemized breakdown, total item count, and confirms free shipping. |
-| **15** | **View Active Cart** | `"Show my cart"` | Lists line items with quantities, prices, grand total, and "View Cart →" link. |
-| **16** | **Autonomous Checkout** | `"Place order"` | Atomic transaction: converts cart into `Order` and `OrderItems`, clears cart, returns Order ID. |
-| **17** | **Live Order Tracking ⭐** | `"Where is my order?"` | Displays Order #, Status (In Transit), Carrier (BlueDart Express), ETA (2 Days), and timeline. |
-| **18** | **Cancel Order ⭐** | `"Cancel my order"` / `"Cancel order #1009"` | Validates status; updates DB status to CANCELLED and initiates simulated refund. |
-| **19** | **1-Click Reorder ⭐** | `"Order the same products as my last order"` | Reads items from latest order, re-inserts them into active cart, ready for checkout. |
-| **20** | **Personalized Suggestions** | `"Personalized suggestions for me"` | Queries database filtered by user's profile interests (e.g. Mobiles, Gaming Laptops). |
-| **21** | **Voice Shopping 🎙️** | *Click Mic & speak:* `"Suggest a gaming laptop"` | Transcribes speech via Web Speech API, sends query, and displays recommended hardware. |
+| **TC-01** | Greeting & Profile Awareness | `"Hi"` / `"Hello"` | Welcomes user acknowledging profile interest tags (e.g. Mobiles, Laptops). |
+| **TC-02** | Product Comparison Matrix | `"Compare Samsung M35 and OnePlus Nord CE"` | Side-by-side spec comparison (Battery, Camera, Display, Price) + recommendation pick. |
+| **TC-03** | Smart Budget Recommendation | `"I have ₹50,000 budget. Suggest a laptop."` | Recommends Acer Aspire 7 with explicit "Why?" rationale and remaining stock. |
+| **TC-04** | Smart Budget Advisor | `"I have ₹25,000. Which phone is best?"` | Recommends Samsung M35 (6000mAh + 120Hz) and highlights Redmi Note 14 as alternative. |
+| **TC-05** | Out-of-Stock Substitute | `"Add iPhone 16 to cart"` | Explains iPhone is unavailable; suggests in-stock substitutes (Samsung M35, OnePlus). |
+| **TC-06** | Product Pros & Cons | `"Why should I buy HP Victus?"` | Displays suitable workloads, pros (144Hz, dual cooling) and cons (heavier chassis). |
+| **TC-07** | Purchase Decision Support | `"Should I buy Samsung M35 or wait?"` | Generates decision matrix based on price stability, battery needs, and stock. |
+| **TC-08** | Requirement-Based Search | `"I need a laptop for coding and gaming"` | Filters laptops with dedicated GPUs, multi-core CPUs, and thermal cooling. |
+| **TC-09** | Gift Recommendations | `"Gift for a college student under ₹5,000"` | Suggests combo gift: Noise Smart Watch (₹2,499) + Boat Airdopes (₹1,299) under ₹5k. |
+| **TC-10** | Concierge Setup Builder | `"Build a complete setup under ₹60,000"` | Assembles Laptop + Earbuds + Smart Watch bundle with total price and CTA. |
+| **TC-11** | Add Setup Bundle to Cart | `"Add setup to cart"` | Adds all bundle items into active cart; navbar cart badge increments. |
+| **TC-12** | Add Single Product to Cart | `"Add Samsung M35 to cart"` | Inserts CartItem in database; updates subtotal and increments navbar badge. |
+| **TC-13** | Adjust Item Quantity | `"Increase Samsung quantity to 3"` | Mutates cart quantity in database; reports updated line item subtotal. |
+| **TC-14** | Cart Bill Summary | `"How much will I pay?"` | Computes itemized breakdown, total count, and confirms free shipping. |
+| **TC-15** | View Active Cart | `"Show my cart"` | Lists line items with quantities, prices, grand total, and "View Cart ->" link. |
+| **TC-16** | Autonomous Checkout | `"Place order"` | Atomic transaction: converts cart into Order & OrderItems, clears cart, returns Order #. |
+| **TC-17** | Live Order Tracking | `"Where is my order?"` | Displays Order #, Status, Carrier (BlueDart Express), ETA (2 Days), and timeline. |
+| **TC-18** | Cancel Order | `"Cancel my order"` / `"Cancel order #1009"` | Validates status; updates DB status to CANCELLED and initiates refund. |
+| **TC-19** | 1-Click Reorder | `"Order the same products as my last order"` | Reads items from latest order, re-inserts them into active cart, ready for checkout. |
+| **TC-20** | Personalized Suggestions | `"Personalized suggestions for me"` | Queries database filtered by user's profile interests (e.g. Mobiles, Laptops). |
+| **TC-21** | Hands-Free Voice Shopping | *Click Mic & speak:* `"Suggest a gaming laptop"` | Transcribes speech via Web Speech API, sends query, and displays recommended hardware. |
 
 ---
 
-<div align="center">
-  <sub>AI Ecommerce Assistant • Enterprise Engineering Architecture Log • Built with Angular 22 & FastAPI</sub>
-</div>
+```
+========================================================================================
+AI Ecommerce Assistant • Enterprise Engineering Prompt Specification • Angular 22 & FastAPI
+========================================================================================
+```
